@@ -3,4 +3,7 @@
 *.so
 *.d
 state-test
-
+coverage
+*.gcno
+*.gcda
+coverage.info

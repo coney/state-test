@@ -45,6 +45,11 @@ clean:
 test: $(TARGET)
 	./$(TARGET)
 
+coverage: test
+	lcov/bin/lcov --directory src --capture --output-file coverage.info
+	lcov/bin/genhtml coverage.info --output-directory coverage
+	
+
 $(C_DEP): %.d : %.c
 	$(CPP) $(C_INC) -MM $< > $@
 
