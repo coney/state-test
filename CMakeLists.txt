@@ -3,5 +3,5 @@ project(state_test)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES state.c state.h main.c power_state.c power_state.h led.c led.h system_status.c system_status.h)
+set(SOURCE_FILES src/state.c src/state.h main.c src/power_state.c src/power_state.h src/led.c src/led.h src/system_status.c src/system_status.h)
 add_executable(state_test ${SOURCE_FILES})

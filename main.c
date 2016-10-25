@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "state.h"
-#include "power_state.h"
+#include "src/state.h"
+#include "src/power_state.h"
 
 int main(int argc, char **argv) {
     state_type state = OFF;
