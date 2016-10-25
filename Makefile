@@ -30,8 +30,8 @@ ALL_OBJ = $(C_OBJ) $(CXX_OBJ)
 ALL_DEP = $(CXX_DEP)
 
 ifeq ($(debug), 1)
-CFLAGS   += -g -DLOCAL_DEBUG
-CXXFLAGS += -g -DLOCAL_DEBUG
+CFLAGS   += -g -DLOCAL_DEBUG -O0
+CXXFLAGS += -g -DLOCAL_DEBUG -O0
 endif
 
 

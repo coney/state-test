@@ -5,8 +5,6 @@
 #include "state.h"
 
 
-
-
 state_type run_state_machine(state_table *table, state_type initial_state) {
     state_table *current_state = table + initial_state;
     state_type new_state = current_state->guard();
