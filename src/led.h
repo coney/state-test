@@ -19,5 +19,4 @@ typedef enum tag_led_status {
 } led_status;
 
 void turn_led(led_type type, led_status status);
-
 #endif //STATE_TEST_LED_H

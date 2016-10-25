@@ -7,6 +7,7 @@
 #include "led.h"
 #include "system_status.h"
 
+
 // POWER ON
 static void power_on_entry() {
     turn_led(POWER_LED, ON);
@@ -98,8 +99,8 @@ static void power_running_run() {
 state_table power_state_table[STATE_TYPE_COUNT] = {
         {power_on_entry,      power_on_exit,      power_on_guard,      power_on_run},
         {power_off_entry,     power_off_exit,     power_off_guard,     power_off_run},
-        {power_fault_entry,   power_fault_exit,   power_fault_guard,   power_fault_run},
-        {power_running_entry, power_running_exit, power_running_guard, power_running_run}
+        {power_running_entry, power_running_exit, power_running_guard, power_running_run},
+        {power_fault_entry,   power_fault_exit,   power_fault_guard,   power_fault_run}
 };
 
 

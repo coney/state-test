@@ -11,8 +11,8 @@ CROSS	= $(RASPI_CROSS_PREFIX)
 CC      = $(CROSS)gcc
 CXX     = $(CROSS)g++
 CPP     = $(CROSS)cpp
-CFLAGS  += $(C_INC) -fPIC $(shell ./gmock/cmock/cmock-config --cflags) -std=c99
-CXXFLAGS += $(C_INC)
+CFLAGS  += $(C_INC) -fPIC $(shell ./gmock/cmock/cmock-config --cflags) -std=c99 -fprofile-arcs -ftest-coverage
+CXXFLAGS += $(C_INC) -fprofile-arcs -ftest-coverage 
 LDFLAGS  += $(shell ./gmock/cmock/cmock-config --libs)
 
 C_INC   = $(INC_DIR:%=-I%) $(INC)
@@ -52,11 +52,11 @@ $(CXX_DEP): %.d : %.cpp
 	$(CPP) $(C_INC) -MM $< > $@
 
 $(C_SO): $(C_OBJ)
-	$(CC) -shared -Wl,-soname,$@ -o $@ $(patsubst %.so,%.o,$(subst src/lib,src/,$@))
+	$(CC) -shared -Wl,-soname,$@ -o $@ $(patsubst %.so,%.o,$(subst src/lib,src/,$@)) -fprofile-arcs -ftest-coverage 
 
 ifneq ($(MAKECMDGOALS), clean)
 -include $(ALL_DEP)
 endif
 
 $(TARGET): $(CXX_OBJ) $(C_SO)
-	$(CXX) -o $@ $^ $(LDFLAGS) -pthread $(C_LIB)
+	$(CXX) -o $@ $^ $(LDFLAGS) -pthread $(C_LIB) -lgcov -fprofile-arcs -ftest-coverage

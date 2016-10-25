@@ -5,6 +5,10 @@
 #ifndef STATE_TEST_SYSTEM_STATUS_H
 #define STATE_TEST_SYSTEM_STATUS_H
 
+
+#define TRUE    1
+#define FALSE   0
+
 int is_system_fault();
 
 int need_power_on();
