@@ -7,3 +7,5 @@ coverage
 *.gcno
 *.gcda
 coverage.info
+
+.DS_Store

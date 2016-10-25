@@ -13,17 +13,11 @@ extern "C" {
 }
 
 int is_system_fault();
-
 int need_power_on();
-
 int need_power_off();
-
 void boot_up();
-
 void shut_down();
-
 void report_fault();
-
 void do_things();
 void turn_led(led_type type, led_status status);
 
