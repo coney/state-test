@@ -9,7 +9,7 @@ int is_system_fault() {
 }
 
 int need_power_on() {
-    return 0;
+    return 1;
 }
 
 int need_power_off() {
